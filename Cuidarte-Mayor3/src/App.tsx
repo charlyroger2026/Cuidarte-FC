@@ -54,6 +54,8 @@ import { motion, AnimatePresence } from 'motion/react';
 import { GoogleGenAI } from "@google/genai";
 import { cn } from './lib/utils';
 import { Patient, Exercise, RiskLevel } from './types';
+import { ModalEvaluacion } from './ModalEvaluacion';
+
 
 // --- Mock Data ---
 
@@ -152,7 +154,8 @@ const RISK_EVOLUTION = [
 
 // --- Components ---
 
-const Sidebar = ({ activeTab, setActiveTab }: { activeTab: string, setActiveTab: (tab: string) => void }) => {
+const Sidebar = ({ activeTab, setActiveTab, onOpenModal }: { activeTab: string, setActiveTab: (tab: string) => void, onOpenModal: () => void }) => {
+
   const menuItems = [
     { id: 'dashboard', label: 'Panel de Control', icon: LayoutDashboard },
     { id: 'patients', label: 'Pacientes', icon: Users },
@@ -202,7 +205,11 @@ const Sidebar = ({ activeTab, setActiveTab }: { activeTab: string, setActiveTab:
       </nav>
 
       <div className="p-6 mt-auto border-t border-slate-100">
-        <button className="w-full bg-indigo-600 text-white py-3 rounded-xl font-semibold flex items-center justify-center gap-2 hover:bg-indigo-700 transition-colors shadow-lg shadow-indigo-200">
+        <button onClick={onOpenModal} className="w-full bg-indigo-600 text-white py-3 rounded-xl font-semibold flex items-center justify-center gap-2 hover:bg-indigo-700 transition-colors shadow-lg shadow-indigo-200">
+  <Plus className="w-5 h-5" />
+  Nueva Evaluación
+</button>
+
           <Plus className="w-5 h-5" />
           Nueva Evaluación
         </button>
