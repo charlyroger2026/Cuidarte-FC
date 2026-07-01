@@ -170,7 +170,7 @@ const Sidebar = ({ activeTab, setActiveTab }: { activeTab: string, setActiveTab:
         </div>
         <div>
           <h1 className="font-display font-bold text-xl text-slate-900 leading-none">CuidArte</h1>
-          <span className="text-xs text-indigo-600 font-semibold tracking-wider uppercase">Mayor</span>
+          <span className="text-xs text-indigo-600 font-semibold tracking-wider uppercase">FC</span>
         </div>
       </div>
 
